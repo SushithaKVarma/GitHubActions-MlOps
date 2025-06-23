@@ -6,10 +6,10 @@ name: Python CI  # name of the GitHubAction
 on: # Inside on we will writing the Event
     push:
         branches:
-            -main # on the branch main [we can trigger multiple branches]
+            - main # on the branch main [we can trigger multiple branches]
     pull_request:
         branches:
-            -main
+            - main
 
 jobs: #Jobs can be 
     test: #github willp provide a container to run this job , and the container will be the ubuntu-latest/windows/mac
