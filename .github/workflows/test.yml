@@ -34,4 +34,4 @@ jobs: #Jobs can be
 
             # step 4: run the tests
             - name: Run tests
-              run: pytest/tests
+              run: pytest tests
