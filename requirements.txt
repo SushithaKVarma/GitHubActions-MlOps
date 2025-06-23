@@ -1,0 +1,5 @@
+# libraries required for the project
+pandas
+pytest #Library for unit testing
+
+#Pytest will scan for entire repo for tests folder and run all the tests
