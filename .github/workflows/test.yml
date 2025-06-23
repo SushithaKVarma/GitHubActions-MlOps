@@ -1,0 +1,37 @@
+name: Python CI  # name of the GitHubAction
+
+#Trigger the workflow on any push to the main branch or pull request
+#Event -> push,pull,merge,delete based on the eveny=st we trigger the workflow.
+
+on: # Inside on we will writing the Event
+    push:
+        branches:
+            - main # on the branch main [we can trigger multiple branches]
+    pull_request:
+        branches:
+            - main
+
+jobs: #Jobs can be 
+    test: #github willp provide a container to run this job , and the container will be the ubuntu-latest/windows/mac
+        runs-on: ubuntu-latest #runson is called key word
+
+        steps:
+            # step 1: check out the code from the repository
+            - name: Check out code
+              uses: actions/checkout@v2
+
+            # Step 2: define the python environment
+            - name: Set up python
+              uses: actions/setup-python@v2
+              with:
+                python-version: '3.8'
+
+            # step 3: install the dependencies
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+
+            # step 4: run the tests
+            - name: Run tests
+              run: pytest/tests
